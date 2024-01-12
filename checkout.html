@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .checkout-container {
+        max-width: 600px;
+        margin: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h2 {
+        color: #4caf50;
+      }
+
+      .checkout-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .checkout-item {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 4px;
+      }
+
+      .checkout-total {
+        text-align: right;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="checkout-container">
+      <h2>Checkout</h2>
+
+      <div class="checkout-items" id="checkout-items"></div>
+
+      <div class="checkout-total" id="checkout-total">Total: $0.00</div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const checkoutItems = document.getElementById('checkout-items');
+        const checkoutTotal = document.getElementById('checkout-total');
+
+        // Retrieve items from the query parameter
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const itemsParam = urlParams.get('items');
+        const items = JSON.parse(decodeURIComponent(itemsParam));
+
+        // Display items on the checkout page
+        items.forEach((item) => {
+          const checkoutItemElement = document.createElement('div');
+          checkoutItemElement.className = 'checkout-item';
+          checkoutItemElement.innerHTML = `
+          <span>${item.productName}</span>
+          <span>$${item.price.toFixed(2)}</span>
+        `;
+          checkoutItems.appendChild(checkoutItemElement);
+        });
+
+        // Calculate and display the total
+        const total = items.reduce((acc, item) => acc + item.price, 0);
+        checkoutTotal.textContent = `Total: $${total.toFixed(2)}`;
+      });
+    </script>
+  </body>
+</html>
