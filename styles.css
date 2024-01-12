@@ -1,0 +1,122 @@
+/* style.css */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f4ef;
+    color: #4b483c;
+    margin: 40px;
+  }
+  
+  .logo {
+    width: 150px;
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  fieldset {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+  }
+  
+  legend {
+    font-weight: bold;
+    margin-bottom: 5px;
+    background-color: #e1f3d8;;
+    border-radius: 3px;
+    padding: 5px;
+  }
+  
+  .form-group {
+    margin-top: 20px;
+  }
+  
+  button {
+    background-color: #e1f3d8; /* Light, calming green */
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    color: #38664b; /* Darker green for contrast */
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+
+/* Style the text box itself */
+input[type="text"] {
+    width: 100%; /* Ensure full width */
+    padding: 10px 15px; /* Provide comfortable spacing */
+    border: 1px solid #ccc; /* Basic border */
+    border-radius: 5px; /* Rounded corners */
+    box-sizing: border-box; /* Include padding in width calculations */
+    font-size: 16px; /* Readable font size */
+  }
+  
+  /* Focus state for visual feedback */
+  input[type="text"]:focus {
+    outline: none; /* Remove default outline */
+    border-color: #2196f3; /* Highlight border on focus */
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.1); /* Add subtle glow */
+  }
+  
+  /* Placeholder text styling */
+  ::placeholder {
+    color: #999; /* Lighter placeholder color */
+    font-style: italic; /* Optional placeholder style */
+  }
+  
+  /* Label styling (optional) */
+  label {
+    display: block; /* Display labels above text boxes */
+    margin-bottom: 5px; /* Space between label and text box */
+    font-weight: bold; /* Make labels stand out */
+  }
+  
+
+
+  /* navbaer */
+
+  nav {
+    background-color: #e1f3d8; /* Dark background color for the navbar */
+    padding: 10px;
+    margin-bottom: 20px;
+    color: black;
+  }
+  
+  .navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .navbar li {
+    margin-right: 15px;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: black; /* White text color for the links */
+    font-weight: bold;
+  }
+  
+  .navbar a:hover {
+    color: #8db73e; /* Change text color on hover to match GreenPay button color */
+  }
+  

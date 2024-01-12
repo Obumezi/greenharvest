@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GreenHarvest - Receipt</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    main {
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 8px;
+      width: 100%;
+      box-sizing: border-box;
+      max-width: 800px;
+    }
+
+    h1 {
+      color: #8db73e; /* Olive green for header */
+      text-align: center;
+    }
+
+    section {
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+    }
+
+    h2 {
+      color: #555;
+    }
+
+    p {
+      margin: 8px 0;
+      color: #333;
+    }
+
+    button {
+      background-color: #8db73e; /* Olive green for button */
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #6e8e2e; /* Darker shade on hover */
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <h1>GreenPay Receipt</h1>
+
+    <section>
+      <!-- <h2>Recipient 1 Details</h2> -->
+      <p><strong>Name:</strong> <span id="userName1"></span></p>
+      <p><strong>Bank Name:</strong> <span id="receiptBankName1"></span></p>
+      <p><strong>Account Number:</strong> <span id="receiptAccountNumber1"></span></p>
+      <p><strong>Amount:</strong> ₦<span id="receiptAmount1"></span></p>
+      <p><strong>Narration:</strong> <span id="receiptNarration1"></span></p>
+    </section>
+
+    <section>
+      <!-- <h2>Recipient 2 Details</h2> -->
+      <p><strong>Name:</strong> <span id="userName2"></span></p>
+      <p><strong>Bank Name:</strong> <span id="receiptBankName2"></span></p>
+      <p><strong>Account Number:</strong> <span id="receiptAccountNumber2"></span></p>
+      <p><strong>Amount:</strong> ₦<span id="receiptAmount2"></span></p>
+      <p><strong>Narration:</strong> <span id="receiptNarration2"></span></p>
+    </section>
+
+    <button onclick="goBack()">Go Back</button>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Function to get URL parameters
+      function getURLParameter(name) {
+        return (new URLSearchParams(window.location.search)).get(name);
+      }
+
+      // Retrieve form details from URL parameters
+      var userName1 = getURLParameter("userName1");
+      var bankCode1 = getURLParameter("bankCode1");
+      var accountNumber1 = getURLParameter("accountNumber1");
+      var amount1 = getURLParameter("amount1");
+      var narration1 = getURLParameter("narration1");
+      var userName2 = getURLParameter("userName2");
+      var bankCode2 = getURLParameter("bankCode2");
+      var accountNumber2 = getURLParameter("accountNumber2");
+      var amount2 = getURLParameter("amount2");
+      var narration2 = getURLParameter("narration2");
+
+      // Populate receipt details
+      document.getElementById("userName1").innerText = userName1;
+      document.getElementById("receiptBankName1").innerText = bankCode1;
+      document.getElementById("receiptAccountNumber1").innerText = accountNumber1;
+      document.getElementById("receiptAmount1").innerText = amount1;
+      document.getElementById("receiptNarration1").innerText = narration1;
+
+      document.getElementById("userName2").innerText = userName2;
+      document.getElementById("receiptBankName2").innerText = bankCode2;
+      document.getElementById("receiptAccountNumber2").innerText = accountNumber2;
+      document.getElementById("receiptAmount2").innerText = amount2;
+      document.getElementById("receiptNarration2").innerText = narration2;
+    });
+
+    // Function to go back to the form page
+    function goBack() {
+      history.back();
+    }
+  </script>
+
+</body>
+</html>

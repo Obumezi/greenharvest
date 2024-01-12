@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KYC Form Confirmation</title>
+    <link rel="stylesheet" />
+
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #f9f4ef;
+        color: #4b483c;
+        margin: 40px;
+      }
+      #confirmation-details {
+        border: 1px solid #ddd; /* Add a subtle border */
+        border-radius: 5px; /* Rounded corners for a softer look */
+        padding: 20px; /* Create spacing around the content */
+        margin-top: 20px; /* Add spacing above the container */
+        text-align: center; /* Center the content for better alignment */
+      }
+
+      #confirmation-details img {
+        margin-bottom: 15px; /* Add spacing below the image */
+        border-radius: 5px; /* Rounded corners for the image */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+      }
+
+      #confirmation-details p {
+        font-size: 16px; /* Adjust font size for readability */
+        line-height: 1.5; /* Increase line height for better spacing */
+        color: #333; /* Adjust text color for better contrast */
+      }
+
+      #confirmation-details strong {
+        font-weight: bold; /* Emphasize labels for clarity */
+      }
+
+      nav {
+    background-color: #e1f3d8; /* Dark background color for the navbar */
+    padding: 10px;
+    margin-bottom: 20px;
+    color: black;
+  }
+  
+  .navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .navbar li {
+    margin-right: 15px;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: black; /* White text color for the links */
+    font-weight: bold;
+  }
+  
+  .navbar a:hover {
+    color: #8db73e; /* Change text color on hover to match GreenPay button color */
+  }
+  
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <nav>
+            <ul class="navbar">
+              <li><a href="KYC.html">KYC</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </nav>
+     <a href="KYC.html"><img src="green.jpg" alt="Sprout Logo" class="logo" /></a> 
+      <h1>Thank You for Growing with Us!</h1>
+
+      <div id="confirmation-details">
+        <!-- Details will be displayed here using JavaScript -->
+      </div>
+
+      <p>
+        <b style="font-size: 30px">
+          Your information has been securely received and will be nurtured for
+          future opportunities.</b
+        >
+      </p>
+
+      <script>
+        function getFormData() {
+          // Retrieve form data from URL parameters
+          const urlParams = new URLSearchParams(window.location.search);
+          const firstName = urlParams.get("first-name");
+          const lastName = urlParams.get("last-name");
+          const idType = urlParams.get("id-type");
+          const idNumber = urlParams.get("id-number");
+
+          // Display the details on the confirmation page
+          const detailsContainer = document.getElementById(
+            "confirmation-details"
+          );
+          detailsContainer.innerHTML = `
+          <img src="${localStorage.getItem(
+            "uploadedImage"
+          )}" alt="Uploaded Image" style="max-width: 50%; height: 300px;" />
+
+          <p style="font-size: 20px;"><strong>Name:</strong> ${firstName} ${lastName}</p>
+            <p style="font-size: 20px;"><strong>ID Type:</strong> ${idType}</p>
+            <p style="font-size: 20px;"><strong>ID Number:</strong> ${idNumber}</p>
+           
+            
+          `;
+        }
+
+        // Call the function to populate the details on page load
+        window.onload = getFormData;
+      </script>
+    </div>
+  </body>
+</html>
